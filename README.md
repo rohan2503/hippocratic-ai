@@ -27,7 +27,7 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 ## 📋 Requirements
 
 - **Python** 3.8 or higher  
-- **OpenAI API key** (GPT-3.5-turbo & optional DALL·E)  
+- **OpenAI API key** (GPT-3.5-turbo)  
 - **Dependencies** listed in `requirements.txt`
 
 ---
@@ -38,3 +38,108 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
    ```bash
    git clone https://github.com/rohan2503/hippocratic-ai.git
    cd hippocratic-ai
+   ```
+
+2. **(Optional) Create a virtual environment**  
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set your OpenAI API key**  
+   - Create a `.env` file in the project root:
+     ```
+     OPENAI_API_KEY=sk-...
+     ```
+
+---
+
+## 🚦 Usage
+
+### 1. Run the API Server
+
+Start the FastAPI server:
+```bash
+uvicorn app:app --reload
+```
+Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive API documentation.
+
+#### Key Endpoints
+
+- **Start a CYOA Story:**
+  ```
+  POST /cyoa/start
+  {
+    "topic": "a brave squirrel"
+  }
+  ```
+  Returns the story intro and two choices.
+
+- **Continue the CYOA Story:**
+  ```
+  POST /cyoa/continue
+  {
+    "story_so_far": "<intro text>",
+    "choice": "1. Climb the tallest tree"
+  }
+  ```
+  Returns the next segment and a new set of choices.
+
+- **Classic Story Generation:**
+  ```
+  POST /story
+  {
+    "topic": "space adventure",
+    "refinement_rounds": 1
+  }
+  ```
+
+### 2. CLI/Interactive Use
+
+If you have a `main.py` or similar CLI, you can prompt the user for a topic, display the intro and choices, accept their selection, and then display the completed story.
+
+Example (pseudo-code):
+```python
+from lib.generator import generate_story, generate_branch_story
+
+topic = input("What should the story be about? ")
+intro, options = generate_story(topic)
+print(intro)
+for opt in options:
+    print(opt)
+choice = input("Pick 1 or 2: ")
+full_story = generate_branch_story(intro, options[int(choice)-1])
+print(full_story)
+```
+
+---
+
+## 🧩 Example
+
+**Request:**
+```json
+POST /cyoa/start
+{ "topic": "a lost kitten" }
+```
+
+**Response:**
+```json
+{
+  "story_segment": "Once there was a kitten named Fluffy who wandered away from home. She saw a dark forest and a sunny meadow ahead.",
+  "question": "1. Explore the dark forest\n2. Run to the sunny meadow"
+}
+```
+
+---
+
+## 📝 License
+
+MIT License
+
+---
+
