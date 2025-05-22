@@ -83,7 +83,7 @@ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive A
 
 - **Start a CYOA Story:**
   ```
-  POST /cyoa/start
+  POST /start
   {
     "topic": "a brave squirrel"
   }
@@ -92,7 +92,7 @@ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive A
 
 - **Continue the CYOA Story:**
   ```
-  POST /cyoa/continue
+  POST /continue
   {
     "story_so_far": "<intro text>",
     "choice": "1. Climb the tallest tree"
@@ -117,7 +117,7 @@ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive A
 
 **Request:**
 ```json
-POST /cyoa/start
+POST /start
 { "topic": "a lost kitten" }
 ```
 
