@@ -4,7 +4,7 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 
 ---
 
-## 🚀 Features
+## Features
 
 - **AI-Generated Stories**  
   Simple, positive tales with a clear beginning, conflict, resolution, and moral.
@@ -27,7 +27,7 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 - **Python** 3.8 or higher  
 - **OpenAI API key** (GPT-3.5-turbo + DALL·E)  
@@ -36,7 +36,7 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 ---
 
 
-## 🛠 Installation & Setup
+## Installation & Setup
 
 1. **Clone the repo**  
    ```bash
@@ -63,7 +63,7 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 
 ---
 
-## 🚦 Usage
+## Usage
 
 ### 1. CLI/Interactive Use
 
@@ -113,7 +113,7 @@ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive A
 
 ---
 
-## 🧩 Example
+## Example
 
 **Request:**
 ```json
@@ -131,7 +131,7 @@ POST /start
 
 ---
 
-## 📝 License
+## License
 
 MIT License
 
