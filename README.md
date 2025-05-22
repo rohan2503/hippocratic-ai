@@ -102,7 +102,7 @@ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive A
 ### 2. CLI/Interactive Use
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 ---
