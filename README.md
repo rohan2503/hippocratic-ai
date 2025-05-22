@@ -61,7 +61,13 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 
 ## 🚦 Usage
 
-### 1. Run the API Server
+### 1. CLI/Interactive Use
+
+```bash
+python3 main.py
+```
+
+### 2. Run the API Server
 
 Start the FastAPI server:
 ```bash
@@ -99,11 +105,7 @@ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive A
   }
   ```
 
-### 2. CLI/Interactive Use
 
-```bash
-python3 main.py
-```
 
 ---
 
