@@ -32,30 +32,35 @@ def main():
 
     # 4) Complete the story based on the selection
     print("\n--- Completing Story ---")
-    full_story = generate_branch_story(intro, selected_option)
-    print(full_story)
+    continuation = generate_branch_story(intro, selected_option)
+    print(continuation)
+    
+    # 5) Combine intro and continuation for the complete story
+    complete_story = intro + "\n\n" + continuation
 
-    # 5) Critique the full story
+    # 6) Critique the complete story
     print("\n--- Critiquing Story ---")
-    critique = critique_story(full_story)
+    critique = critique_story(complete_story)
     print(critique)
 
-    # 6) Refine the story based on the critique
+    # 7) Refine the complete story based on the critique
     print("\n--- Refining Story ---")
-    refined_story = refine_story(full_story, critique)
+    refined_story = refine_story(complete_story, critique)
     print(refined_story)
 
-    # 7) Generate a single illustration via DALL·E (no text)
+    # 8) Generate a single illustration via DALL·E (no text)
     print("\n--- Generating Illustration URL ---")
     try:
         resp = client.images.generate(
             model="dall-e-3",
             prompt=(
-                "Create a vibrant, text-free illustration for this children's bedtime story:\n\n"
+                "Create a single image composed of 6 equal comic-style panels (arranged in 2 rows of 3). "
+                "Use a gentle, storybook illustration style with soft colors and no text or captions. "
+                "Each panel should show one key beat of the story below, in order:\n\n"
                 f"{refined_story}"
             ),
             n=1,
-            size="1024x1024"
+            size="1792x1024"  # wide format to fit 2×3 panels nicely
         )
         img_url = resp.data[0].url
         print(f"\nIllustration URL (paste into your browser):\n{img_url}\n")
