@@ -1,68 +1,40 @@
-Bedtime Story AI
-Bedtime Story AI is an interactive storytelling app that generates uplifting, age-appropriate bedtime stories for children ages 5–10. It features a unique Choose-Your-Own-Adventure (CYOA) mode, allowing children to make choices that shape the story’s direction and outcome.
-Features
-AI-Generated Stories: Simple, positive tales with clear structure and morals.
-Choose-Your-Own-Adventure: At key points, children pick between two story branches.
-API & Interactive Modes: Use via REST API or integrate into your own CLI/app.
-Custom Topics: Generate stories about any topic you choose.
-Requirements
-Python 3.8+
-OpenAI API key
-Dependencies in requirements.txt (install with pip install -r requirements.txt)
+# Bedtime Story AI
 
+An interactive storytelling app that generates uplifting, age-appropriate bedtime stories for children ages 5–10. It features a Choose-Your-Own-Adventure (CYOA) mode, plus automatic critique & refinement, and a clean REST API.
 
-Core Logic (lib/generator.py):
+---
 
-generate_story(topic) → returns (intro, ["1. …", "2. …"])
+## 🚀 Features
 
-generate_branch_story(intro, choice) → returns a complete resolution + moral
+- **AI-Generated Stories**  
+  Simple, positive tales with a clear beginning, conflict, resolution, and moral.
 
-Feedback Loop
+- **Choose-Your-Own-Adventure**  
+  At key points, kids choose between two branches. The story continues and ends based on their pick.
 
-lib/judge.py critiques a story draft
+- **Feedback Loop**  
+  Each draft is automatically critiqued and refined to improve clarity and language for ages 5–10.
 
-lib/refiner.py polishes it based on the critique
+- **Multiple Interfaces**  
+  - **CLI**: Run end-to-end in your terminal.  
+  - **REST API**: Integrate into your own app or webpage.
 
-FastAPI Service (app.py):
+- **Custom Topics**  
+  Ask for a story on any subject (“fox and grapes,” “space explorer turtle,” etc.).
 
-GET /health → service status
+---
 
-POST /story/draft → { topic, refinement_rounds } → draft + options
+## 📋 Requirements
 
-POST /story → full pipeline: draft → critique → refine → returns { draft, options, critique, final }
+- **Python** 3.8 or higher  
+- **OpenAI API key** (GPT-3.5-turbo & optional DALL·E)  
+- **Dependencies** listed in `requirements.txt`
 
-POST /story/critique → critique only
+---
 
-POST /story/refine → refine only
+## 🛠 Installation & Setup
 
-POST /story/branch → continue a branch: { intro, choice } → full resolved story
-
-Quick Start
-
-Clone & virtualenv
-
-git clone https://github.com/rohan2503/hippocratic-ai.git
-cd hippocratic-ai
-python3 -m venv venv
-source venv/bin/activate
-
-Install dependencies
-
-pip install -r requirements.txt
-
-Configure your API key
-
-Copy .env.example to .env and drop in your OpenAI key:
-
-OPENAI_API_KEY=sk-...
-
-Run the CLI
-
-python main.py
-
-Spin up the API
-
-uvicorn app:app --reload
-
-Then visit http://127.0.0.1:8000/docs for interactive docs.
-
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/rohan2503/hippocratic-ai.git
+   cd hippocratic-ai
