@@ -27,6 +27,52 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 
 ---
 
+## Architecture & Flow Diagram
+```
+┌─────────────┐
+│    User     │
+└─────┬───────┘
+      │ enters topic or sends HTTP POST
+      ▼
+┌──────────────────┐
+│ CLI / FastAPI    │
+│ Interface        │
+└───┬───────────┬──┘
+    │           │
+    │           ▼
+    │   ┌────────────────┐
+    └──▶│ Storyteller    │
+        │ (generator.py) │
+        └───┬─────────┬──┘
+            │         │
+            │ intro & │
+            │ options │
+            ▼         │
+    ┌──────────────────┐
+    │  Judge           │
+    │  (judge.py)      │
+    └──┬───────────┬───┘
+       │ critique  │
+       ▼           │
+┌────────────────────┐
+│  Refiner           │
+│  (refiner.py)      │
+└──┬─────────────┬───┘
+   │ refined     │
+   │ story       │
+   ▼             │
+┌────────────────┐
+│ DALL·E Client  │
+│ (OpenAI.Images)│
+└───┬──────────┬─┘
+    │ image URL │
+    ▼           │
+┌───────────────┴───┐
+│ Response to CLI/  │
+│ HTTP              │
+└───────────────────┘
+```
+
 ## Requirements
 
 - **Python** 3.8 or higher  
