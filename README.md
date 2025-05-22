@@ -1,5 +1,4 @@
 # Bedtime Story AI
-xyz
 
 An interactive storytelling app that generates uplifting, age-appropriate bedtime stories for children ages 5–10. It features a Choose-Your-Own-Adventure (CYOA) mode, plus automatic critique & refinement, and a clean REST API. The CLI also supports on-the-fly illustrations via DALL·E—you’ll get a copy-pasted URL you can open in your browser.
 
