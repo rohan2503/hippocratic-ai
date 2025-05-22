@@ -1,6 +1,6 @@
 # Bedtime Story AI
 
-An interactive storytelling app that generates uplifting, age-appropriate bedtime stories for children ages 5–10. It features a Choose-Your-Own-Adventure (CYOA) mode, plus automatic critique & refinement, and a clean REST API.
+An interactive storytelling app that generates uplifting, age-appropriate bedtime stories for children ages 5–10. It features a Choose-Your-Own-Adventure (CYOA) mode, plus automatic critique & refinement, and a clean REST API. The CLI also supports on-the-fly illustrations via DALL·E—you’ll get a copy-pasted URL you can open in your browser.
 
 ---
 
@@ -15,6 +15,9 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 - **Feedback Loop**  
   Each draft is automatically critiqued and refined to improve clarity and language for ages 5–10.
 
+- **Illustrations with DALL·E**  
+  After the final story prints in the CLI, you’ll receive a pre-signed URL to a colorful DALL·E illustration—just copy & paste it into your browser.
+
 - **Multiple Interfaces**  
   - **CLI**: Run end-to-end in your terminal.  
   - **REST API**: Integrate into your own app or webpage.
@@ -27,10 +30,11 @@ An interactive storytelling app that generates uplifting, age-appropriate bedtim
 ## 📋 Requirements
 
 - **Python** 3.8 or higher  
-- **OpenAI API key** (GPT-3.5-turbo)  
+- **OpenAI API key** (GPT-3.5-turbo + DALL·E)  
 - **Dependencies** listed in `requirements.txt`
 
 ---
+
 
 ## 🛠 Installation & Setup
 
