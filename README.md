@@ -101,21 +101,7 @@ Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive A
 
 ### 2. CLI/Interactive Use
 
-If you have a `main.py` or similar CLI, you can prompt the user for a topic, display the intro and choices, accept their selection, and then display the completed story.
-
-Example (pseudo-code):
-```python
-from lib.generator import generate_story, generate_branch_story
-
-topic = input("What should the story be about? ")
-intro, options = generate_story(topic)
-print(intro)
-for opt in options:
-    print(opt)
-choice = input("Pick 1 or 2: ")
-full_story = generate_branch_story(intro, options[int(choice)-1])
-print(full_story)
-```
+python main.py
 
 ---
 
